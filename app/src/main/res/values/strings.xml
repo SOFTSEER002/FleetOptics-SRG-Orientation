@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FleetOptics</string>
+    <string name="quick_field_txt">Please enter the recipient in the quick search field to retrieve the employee name in the FleetOptics Directory.</string>
+    <string name="meeting">has been notified and will be with you shortly… Thank You!</string>
+    <string name="quick_search_txt">Please enter the recipient in the quick search field to retrieve the employee name in the FleetOptics Directory.\nSelect the employee name and tap Submit.</string>
+
+</resources>

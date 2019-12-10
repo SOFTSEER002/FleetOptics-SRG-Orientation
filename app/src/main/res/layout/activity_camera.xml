@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.CameraActivity">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <com.google.android.cameraview.CameraView
+                android:id="@+id/camera"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                app:facing="front"/>
+    </FrameLayout>
+    <ImageView
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/capture"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/take_picture"
+        android:layout_width="50dp"
+        android:gravity="center_horizontal"
+        android:textSize="16dp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_height="50dp"
+        android:layout_gravity="center" />
+
+</RelativeLayout>

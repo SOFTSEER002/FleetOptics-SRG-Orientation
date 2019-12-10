@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.PackageDeliveryActivity">
+    <RelativeLayout
+        android:id="@+id/specHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/backPackageDelivery"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_margin="15dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg"
+            android:text="Submit"
+            android:id="@+id/submitButtonPackage"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:textColor="@color/buttonColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="Is a signature required?"
+            android:layout_gravity="center_horizontal"/>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:padding="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:layout_marginBottom="5dp"
+                android:id="@+id/yes_radio"
+                android:text="Yes"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:layout_marginTop="5dp"
+                android:id="@+id/no_radio"
+                android:text="No"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

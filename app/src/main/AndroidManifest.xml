@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.doozycod.fleetoptics">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.audio.low_latency" android:required="false" />
+    <uses-feature android:name="android.hardware.audio.output" android:required="false" />
+    <uses-feature android:name="android.hardware.audio.pro" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.sensor.proximity" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.software.sip" android:required="false" />
+    <uses-feature android:name="android.software.sip.voip" android:required="false" />
+    <uses-feature android:name="android.software.webview" android:required="false" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.USE_SIP" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+
+
+    <application
+        android:usesCleartextTraffic="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:launchMode="singleInstance"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:stateNotNeeded="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.SignOutActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:name=".Activities.PersonalMeetingActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.InterviewActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.NotifyActivity"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.SpecificRecipientActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.SignatureActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.PurposeofVisitActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.PackageDeliveryActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.CheckinTypeActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.SplashActivity"
+            android:screenOrientation="user"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.CameraActivity"
+            android:screenOrientation="user" />
+        <activity
+            android:configChanges="screenLayout|orientation|screenSize"
+            android:name=".Activities.HomeActivity"
+            android:screenOrientation="user">
+
+        </activity>
+    </application>
+
+
+
+
+</manifest>

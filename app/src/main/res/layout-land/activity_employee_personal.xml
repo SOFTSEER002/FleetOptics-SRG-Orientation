@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    tools:context=".Activities.PersonalMeetingActivity">
+
+        <Button
+            android:id="@+id/meetBackBtn"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:layout_alignParentLeft="true"/>
+
+        <CheckBox
+            android:id="@+id/checkMultipleVisitor"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="Check-In Multiple People?"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/submitInterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="submit"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg"/>
+
+    <ScrollView
+        android:layout_below="@+id/meetBackBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="60dp">
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:visibility="visible"
+                android:id="@+id/linearLayout1st"
+                android:layout_gravity="center_vertical"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="4"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:id="@+id/nameTxt"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="Full Name"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <EditText
+                        android:paddingLeft="15dp"
+                        android:hint="Visitor Name"
+                        android:inputType="textPersonName"
+                        android:background="@drawable/et_bg"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/visitorFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/companyBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="Company Name (Optional)"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:inputType="textPersonName"
+                        android:paddingLeft="15dp"
+                        android:hint="Company Name"
+                        android:background="@drawable/et_bg"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/companyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/emailBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="Email Address"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:hint="Email Address"
+                        android:inputType="textEmailAddress"
+                        android:background="@drawable/et_bg"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/emailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/phoneBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_marginRight="10dp">
+                    <TextView
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:text="Phone Number"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <EditText
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:hint="Phone Number"
+                        android:inputType="phone"
+                        android:maxLength="10"
+                        android:background="@drawable/et_bg"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/visitorPhoneNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayout2ndRoot"
+                android:layout_gravity="center_vertical"
+                android:gravity="bottom"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/nameTxtDynamic"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:text="Visitor Name"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:visibility="visible"
+                    android:id="@+id/linearLayout2nd"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:gravity="center_horizontal"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/addPeople"
+                android:layout_gravity="center_vertical|center"
+                android:padding="10dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/ic_group_add_black_24dp"
+                />
+
+            <TextView
+
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Privacy Policy"/>
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I agree!"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

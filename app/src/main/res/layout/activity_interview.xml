@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.InterviewActivity">
+
+    <Button
+        android:id="@+id/interBackBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/ic_arrow_back_black_24dp" />
+<ScrollView
+    android:layout_below="@+id/interBackBtn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="60dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp">
+            <TextView
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="Full Name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:inputType="textPersonName"
+                android:paddingLeft="15dp"
+                android:hint="Visitor Name"
+                android:background="@drawable/et_bg"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/visitorName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="Email Address"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:inputType="textEmailAddress"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+
+                android:hint="Enter you email"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/visitorEmail"
+                android:layout_width="match_parent"
+                android:background="@drawable/et_bg"
+                android:layout_height="50dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:text="Phone Number"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:inputType="phone"
+                android:maxLength="10"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:hint="Enter your phone no"
+                android:background="@drawable/et_bg"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/visitorPhoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Privacy Policy"/>
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I agree!"/>
+</LinearLayout>
+</ScrollView>
+
+    <Button
+        android:id="@+id/submitInterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="submit"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_bg"/>
+</RelativeLayout>

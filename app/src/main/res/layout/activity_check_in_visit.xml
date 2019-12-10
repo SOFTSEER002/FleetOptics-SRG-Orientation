@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:background="#fff"
+    tools:context=".Activities.PurposeofVisitActivity">
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2">
+        <Button
+            android:id="@+id/visitCheckinBackBtn"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:text="Purpose of Visit:"
+            android:textSize="30dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        <Button
+            android:layout_weight=".5"
+            android:id="@+id/sumbitEmpBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="5dp"
+            android:text="submit"
+            android:background="@drawable/button_bg"
+            android:layout_marginRight="15dp"/>
+
+    </LinearLayout>
+    <ScrollView
+        android:layout_below="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/searchBar_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/visit_radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <RadioButton
+                    android:id="@+id/meeting"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Meeting"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+                <RadioButton
+                    android:id="@+id/interview"
+                    android:layout_weight="1"
+                    android:layout_width="110dp"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content"
+                    android:text="Drop-in Interview "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+                <RadioButton
+                    android:id="@+id/personal"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Personal"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quick_field_txt"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                />
+
+            <EditText
+                android:id="@+id/editTextsearchbar"
+                android:paddingLeft="20dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="5dp"
+                android:hint="Quick Search"
+
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/et_bg"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FLEETOPTICS DIRECTORY"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F0F0F0"
+                android:minHeight="150dp">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/visitor_listview"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
