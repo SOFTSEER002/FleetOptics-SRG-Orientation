@@ -22,6 +22,7 @@ public class CheckinTypeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_checkin_type);
+//        hide actionbar
         getSupportActionBar().hide();
 //        typecasting
         initUI();

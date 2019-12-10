@@ -15,25 +15,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.doozycod.fleetoptics.Model.AppointmentResultModel;
 import com.doozycod.fleetoptics.R;
 import com.doozycod.fleetoptics.Service.ApiService;
 import com.doozycod.fleetoptics.Service.ApiUtils;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 import static android.view.View.VISIBLE;
 import static com.doozycod.fleetoptics.R.drawable.et_bg;
 
@@ -199,16 +190,6 @@ public class PersonalMeetingActivity extends AppCompatActivity {
             }
         });
 
-/*//        finish button click set finish visiblity gone
-        finishInterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AddPeopleBtn.setVisibility(View.GONE);
-                Toast.makeText(PersonalMeetingActivity.this, "Contacts Added!", Toast.LENGTH_SHORT).show();
-                finishInterButton.setVisibility(View.GONE);
-                isFinished = true;
-            }
-        });*/
 
 //        submit go to notify activity!
         submitInterButton.setOnClickListener(new View.OnClickListener() {

@@ -51,33 +51,6 @@ public class CameraActivity extends AppCompatActivity {
         deviceName = android.os.Build.MODEL;
         deviceMan = android.os.Build.MANUFACTURER;
     }
-    /*@Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        configuration = newConfig;
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-            RelativeLayout.LayoutParams rel_btn = new RelativeLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            brezen_cam.setLayoutParams(rel_btn);
-
-            statistic.setVisibility(View.GONE);
-            temp_map.setVisibility(View.VISIBLE);
-
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-            statistic.setVisibility(View.VISIBLE);
-            temp_map.setVisibility(View.GONE);
-            final float scale = this.getResources().getDisplayMetrics().density;
-            int pixels = (int) (190 * scale + 0.5f);
-            int pixels2 = (int) (300 * scale + 0.5f);
-            RelativeLayout.LayoutParams rel_btn = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, pixels2);
-            rel_btn.addRule(RelativeLayout.CENTER_HORIZONTAL);
-            brezen_cam.setLayoutParams(rel_btn);
-
-        }
-    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

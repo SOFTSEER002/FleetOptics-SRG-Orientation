@@ -31,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView text_signin;
     Button signinButton, signoutButton;
 
+    //    typecasting method
     private void initUI() {
         main_screen = findViewById(R.id.main_screen);
         SigninSignoutButton = findViewById(R.id.SigninSignoutButton);

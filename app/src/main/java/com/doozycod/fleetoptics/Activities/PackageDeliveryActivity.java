@@ -62,6 +62,7 @@ public class PackageDeliveryActivity extends AppCompatActivity {
 
             }
         });
+//        submit package delivery
         submitPackageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
