@@ -1,10 +1,13 @@
 package com.doozycod.fleetoptics.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -13,7 +16,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,6 +50,7 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
     List<GetEmployeeModel.employees> getEmployeeModels = new ArrayList<>();
     String employeeName = "", empId = "";
     CustomProgressBar customProgressBar;
+    ProgressDialog progressDialog = null;
 
     private void initUI() {
         search_emp = findViewById(R.id.editTextsearchbar);
@@ -80,6 +86,19 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
         getEmployees();
     }
 
+    @RequiresApi(28)
+    private static class OnUnhandledKeyEventListenerWrapper implements View.OnUnhandledKeyEventListener {
+        private ViewCompat.OnUnhandledKeyEventListenerCompat mCompatListener;
+
+        OnUnhandledKeyEventListenerWrapper(ViewCompat.OnUnhandledKeyEventListenerCompat listener) {
+            this.mCompatListener = listener;
+        }
+
+        public boolean onUnhandledKeyEvent(View v, KeyEvent event) {
+            return this.mCompatListener.onUnhandledKeyEvent(v, event);
+        }
+    }
+
     private void onClickListener() {
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -96,7 +115,6 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
                     meetingRadioBtn.setChecked(true);
                     interviewRadioBtn.setChecked(false);
                     personalRadioBtn.setChecked(false);
-
                 }
                 if (interviewRadioBtn.isChecked()) {
 
@@ -193,7 +211,7 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
         });
     }
 
-//    get employee from api
+    //    get employee from api
     void filter(String text) {
         List<GetEmployeeModel.employees> temp = new ArrayList();
         for (GetEmployeeModel.employees d : getEmployeeModels) {
@@ -208,14 +226,26 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
     }
 
 
-//    get All Employees api
+    //    get All Employees api
     void getEmployees() {
-        customProgressBar.showProgress();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            customProgressBar.showProgress();
+        } else {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.show();
+        }
+
         apiService.getAllEmployees().enqueue(new Callback<GetEmployeeModel>() {
             @Override
             public void onResponse(Call<GetEmployeeModel> call, Response<GetEmployeeModel> response) {
                 if (response.isSuccessful()) {
-                    customProgressBar.hideProgress();
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        customProgressBar.hideProgress();
+                    } else {
+
+                        progressDialog.dismiss();
+                    }
                     getEmployeeModels = response.body().getEmployees();
                     for (int i = 0; i < getEmployeeModels.size(); i++) {
                         Log.e("Employee DATA", "onResponse: " + getEmployeeModels.get(i).getId());
@@ -224,16 +254,21 @@ public class PurposeofVisitActivity extends AppCompatActivity implements Callbac
                     }
                 }
             }
+
             @Override
             public void onFailure(Call<GetEmployeeModel> call, Throwable t) {
                 Log.e("Employee DATA", "onResponse: " + t.getMessage());
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
                 Toast.makeText(PurposeofVisitActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-//    interface to get selected employee name and empID
+    //    interface to get selected employee name and empID
     @Override
     public void onResultListener(String RecipientName, String id) {
         employeeName = RecipientName;

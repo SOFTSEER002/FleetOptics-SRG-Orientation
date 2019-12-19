@@ -78,6 +78,7 @@ public class NotifyActivity extends AppCompatActivity {
 
 //      activity instance
         instance = this;
+
 //          progress bar
         customProgressBar = new CustomProgressBar(this);
 //        api service
@@ -108,7 +109,7 @@ public class NotifyActivity extends AppCompatActivity {
 //            return;
         }
         if (getIntent().hasExtra("Specific")) {
-//
+
             empContactNumber = getIntent().getStringExtra("empPhoneNo");
             //            start Voip call
             voipCallStart();
@@ -132,7 +133,7 @@ public class NotifyActivity extends AppCompatActivity {
 
             appointmentAPI(getIntent().getStringExtra("checkin"), getIntent().getStringExtra("purpose"), getIntent().getStringExtra("name"), "",
                     getIntent().getStringExtra("emailID"), getIntent().getStringExtra("phone_no"), currentDateandTime, encodedImage, "2");
-//            return;
+
         }
     }
 
@@ -210,7 +211,7 @@ public class NotifyActivity extends AppCompatActivity {
         public void handleMessage(android.os.Message msg) {
             try {
                 if (msg == null || msg.getData() == null) return;
-                ;
+
                 Bundle resBundle = msg.getData();
 
                 String receivedNotif = msg.getData().getString("notifmessages");

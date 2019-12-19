@@ -1,6 +1,8 @@
 package com.doozycod.fleetoptics.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -43,6 +45,7 @@ public class SpecificRecipientActivity extends AppCompatActivity implements Call
     String empId = "";
     String empName = "";
     CustomProgressBar customProgressBar;
+    private ProgressDialog progressDialog;
 
     private void initUI() {
 
@@ -174,12 +177,21 @@ public class SpecificRecipientActivity extends AppCompatActivity implements Call
 
 
     void getPackageDelivered(String CheckinType, String deliverToWhom, String isSignReq, String isSpecificPerson) {
-        customProgressBar.showProgress();
-
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            customProgressBar.showProgress();
+        } else {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.show();
+        }
         apiService.packageDelivery(CheckinType, deliverToWhom, isSignReq, isSpecificPerson).enqueue(new Callback<ResultModel>() {
             @Override
             public void onResponse(Call<ResultModel> call, Response<ResultModel> response) {
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
 
                 if (response.isSuccessful()) {
                     if (response.body().getType().equals("success")) {
@@ -196,7 +208,11 @@ public class SpecificRecipientActivity extends AppCompatActivity implements Call
 
             @Override
             public void onFailure(Call<ResultModel> call, Throwable t) {
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
 
                 Toast.makeText(SpecificRecipientActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }

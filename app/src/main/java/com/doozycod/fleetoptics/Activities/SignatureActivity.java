@@ -1,6 +1,8 @@
 package com.doozycod.fleetoptics.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,6 +29,7 @@ public class SignatureActivity extends AppCompatActivity {
     Button backSignature,submitSignatureButton;
     CustomProgressBar customProgressBar;
     ApiService apiService;
+    private ProgressDialog progressDialog;
 
     //    typecasting method
     private void initUI() {
@@ -88,11 +91,21 @@ public class SignatureActivity extends AppCompatActivity {
 
     //    Package Delivery Api
     void getPackageDelivered(String CheckinType, String deliverToWhom, String isSignReq, String isSpecificPerson) {
-        customProgressBar.showProgress();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            customProgressBar.showProgress();
+        } else {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.show();
+        }
         apiService.packageDelivery(CheckinType, deliverToWhom, isSignReq, isSpecificPerson).enqueue(new Callback<ResultModel>() {
             @Override
             public void onResponse(Call<ResultModel> call, Response<ResultModel> response) {
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
 
                 if (response.isSuccessful()) {
                     if (response.body().getType().equals("success")) {
@@ -110,7 +123,11 @@ public class SignatureActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ResultModel> call, Throwable t) {
                 Toast.makeText(SignatureActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
 
             }
         });

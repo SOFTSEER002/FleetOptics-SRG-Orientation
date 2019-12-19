@@ -1,6 +1,8 @@
 package com.doozycod.fleetoptics.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -44,6 +46,7 @@ public class SignOutActivity extends AppCompatActivity implements CallbackListen
     EditText searchVisitor;
     String visitorEmail = "";
     CustomProgressBar customProgressBar;
+    private ProgressDialog progressDialog;
 
     //    typecasting method
     private void initUI() {
@@ -151,17 +154,26 @@ public class SignOutActivity extends AppCompatActivity implements CallbackListen
 
 //    signout Api
     void signOutVisitor(String visitorEmail, String timestamp) {
-        customProgressBar.showProgress();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            customProgressBar.showProgress();
+        } else {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.show();
+        }
         apiService.signOutVisitor(visitorEmail, timestamp).enqueue(new Callback<ResultModel>() {
             @Override
             public void onResponse(Call<ResultModel> call, Response<ResultModel> response) {
                 if (response.isSuccessful()) {
-                    customProgressBar.hideProgress();
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        customProgressBar.hideProgress();
+                    } else {
+                        progressDialog.dismiss();
+                    }
                     if (response.body().getType().equals("success")) {
                         Toast.makeText(SignOutActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(SignOutActivity.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
-
                     }
                     startActivity(new Intent(SignOutActivity.this, SplashActivity.class));
                     finish();
@@ -170,7 +182,11 @@ public class SignOutActivity extends AppCompatActivity implements CallbackListen
 
             @Override
             public void onFailure(Call<ResultModel> call, Throwable t) {
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
                 Log.e(TAG, "onFailure: " + t.getMessage());
                 Toast.makeText(SignOutActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
@@ -179,12 +195,22 @@ public class SignOutActivity extends AppCompatActivity implements CallbackListen
 
 //    get all Current visitors
     void getCurrentVisitors() {
-        customProgressBar.showProgress();
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            customProgressBar.showProgress();
+        } else {
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.show();
+        }
         apiService.getCurrentVisitors().enqueue(new Callback<GetCurrentVisitors>() {
             @Override
             public void onResponse(Call<GetCurrentVisitors> call, Response<GetCurrentVisitors> response) {
                 if (response.isSuccessful()) {
-                    customProgressBar.hideProgress();
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                        customProgressBar.hideProgress();
+                    } else {
+                        progressDialog.dismiss();
+                    }
                     getCurrentVisitorsList = response.body().getVisitors();
                     Log.e(TAG, "onResponse: " + getCurrentVisitorsList.get(0).getCheckin_type());
                     signOutRecyclerAdapter = new SignOutRecyclerAdapter(SignOutActivity.this, SignOutActivity.this, getCurrentVisitorsList);
@@ -193,7 +219,11 @@ public class SignOutActivity extends AppCompatActivity implements CallbackListen
 
             @Override
             public void onFailure(Call<GetCurrentVisitors> call, Throwable t) {
-                customProgressBar.hideProgress();
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    customProgressBar.hideProgress();
+                } else {
+                    progressDialog.dismiss();
+                }
                 Log.e(TAG, "onFailure: " + t.getMessage());
                 Toast.makeText(SignOutActivity.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }

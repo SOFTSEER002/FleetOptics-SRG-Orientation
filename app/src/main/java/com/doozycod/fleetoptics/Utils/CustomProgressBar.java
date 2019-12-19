@@ -29,7 +29,6 @@ public class CustomProgressBar {
 		popDialog.getWindow().setBackgroundDrawable(
 				new ColorDrawable(android.graphics.Color.TRANSPARENT));
 		popDialog.setCancelable(false);
-
 		popDialog.show();
 	}
 
