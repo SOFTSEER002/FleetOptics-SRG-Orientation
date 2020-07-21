@@ -29,7 +29,8 @@
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Welcome! Please tap the screen to sign in or sign out."
+            android:textColor="#28A7F7"
+            android:text="Welcome!  Please tap the screen to sign in or sign out."
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
     </LinearLayout>
 </RelativeLayout>

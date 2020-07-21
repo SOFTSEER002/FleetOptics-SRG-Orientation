@@ -39,6 +39,8 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:text="Sign in"
+                    android:textColor="#fff"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:background="@drawable/button_bg"/>
 
                 <Button
@@ -48,6 +50,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
+                    android:textColor="#fff"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:background="@drawable/button_bg"
                     android:text="sign out" />
             </LinearLayout>
